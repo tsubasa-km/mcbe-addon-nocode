@@ -1,7 +1,7 @@
 "use client";
-
-import Header from "@/src/header/header";
 import { Box } from "@mantine/core";
+
+import Header from "@/src/Header/header";
 
 export default function Home() {
   return (
