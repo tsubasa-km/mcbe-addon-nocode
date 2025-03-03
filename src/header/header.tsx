@@ -3,12 +3,6 @@ import React, { memo } from "react";
 import { Button, Flex, Menu, Kbd } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons-react";
 
-/**
- * メニュー項目の型定義
- * - サブメニューを持つ場合は onClick を許容しない
- * - 単一のアクションの場合は subMenu を許容しない
- * - shortcut は複数のキーを表現するため string[] 型とする
- */
 export type MenuItem = {
     name: string;
     shortcut?: string[];
@@ -17,9 +11,6 @@ export type MenuItem = {
         | { onClick: () => void; subMenu?: never }
     );
 
-/**
- * メニューのデータ定義
- */
 export const menuItems: MenuItem[] = [
     {
         name: "File",
@@ -77,9 +68,6 @@ interface MenuItemComponentProps {
     depth?: number;
 }
 
-/**
- * ショートカットキーをレンダリングするヘルパー関数
- */
 const renderShortcut = (keys: string[]) => (
     <span style={{ marginLeft: "3rem" }}>
         {keys.map((key, index) => (
@@ -91,11 +79,8 @@ const renderShortcut = (keys: string[]) => (
     </span>
 );
 
-/**
- * 再帰的にメニュー項目およびサブメニューをレンダリングするコンポーネント
- */
 const MenuItemComponent: React.FC<MenuItemComponentProps> = memo(({ item, depth = 0 }) => {
-    // トップレベル用のボタン。ショートカットがある場合は renderShortcut を使用して表示
+
     const renderButton = () => (
         <Button
             className="menu-btn"
@@ -111,7 +96,7 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = memo(({ item, depth 
         </Button>
     );
 
-    // サブメニューを持たない場合のレンダリング
+
     if (!item.subMenu) {
         return depth === 0 ? (
             renderButton()
@@ -126,7 +111,7 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = memo(({ item, depth 
         );
     }
 
-    // サブメニューを持つ場合のターゲット要素の生成（上位と入れ子で見た目を変える）
+
     const targetElement =
         depth === 0 ? (
             renderButton()
@@ -168,10 +153,6 @@ const MenuItemComponent: React.FC<MenuItemComponentProps> = memo(({ item, depth 
 });
 MenuItemComponent.displayName = "MenuItemComponent";
 
-/**
- * ヘッダーコンポーネント
- * - 上位メニューを水平配置するレイアウトを提供
- */
 export default function Header() {
     return (
         <Flex className="header" gap="1" px="1.5em">
