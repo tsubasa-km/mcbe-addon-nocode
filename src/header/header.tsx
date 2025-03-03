@@ -16,35 +16,35 @@ export const menuItems: MenuItem[] = [
         name: "File",
         subMenu: [
             [
-                { name: "New", shortcut: ["⌘", "N"], onClick: () => console.log("New") },
-                { name: "Open", shortcut: ["⌘", "O"], onClick: () => console.log("Open") },
-                { name: "Save", shortcut: ["⌘", "S"], onClick: () => console.log("Save") },
-                { name: "Save As", shortcut: ["⌘", "Shift", "S"], onClick: () => console.log("Save As") },
+                { name: "New Project", shortcut: ["Ctrl", "N"], onClick: () => console.log("New") },
+                { name: "Open Project", shortcut: ["Ctrl", "O"], onClick: () => console.log("Open") },
+                { name: "Save", shortcut: ["Ctrl", "S"], onClick: () => console.log("Save") },
+                { name: "Save As", shortcut: ["Ctrl", "Shift", "S"], onClick: () => console.log("Save As") },
             ],
             [
-                { name: "Settings", shortcut: ["⌘", ","], onClick: () => console.log("Settings") },
+                { name: "Settings", shortcut: ["Ctrl", ","], onClick: () => console.log("Settings") },
             ],
             [
-                { name: "Exit", shortcut: ["⌘", "Q"], onClick: () => console.log("Exit") },
+                { name: "Exit", shortcut: ["Ctrl", "Q"], onClick: () => console.log("Exit") },
             ]
         ],
     },
     {
         name: "Edit",
         subMenu: [[
-            { name: "Undo", shortcut: ["⌘", "Z"], onClick: () => console.log("Undo") },
-            { name: "Redo", shortcut: ["⌘", "Shift", "Z"], onClick: () => console.log("Redo") },
-            { name: "Cut", shortcut: ["⌘", "X"], onClick: () => console.log("Cut") },
-            { name: "Copy", shortcut: ["⌘", "C"], onClick: () => console.log("Copy") },
-            { name: "Paste", shortcut: ["⌘", "V"], onClick: () => console.log("Paste") },
+            { name: "Undo", shortcut: ["Ctrl", "Z"], onClick: () => console.log("Undo") },
+            { name: "Redo", shortcut: ["Ctrl", "Y"], onClick: () => console.log("Redo") },
+            { name: "Cut", shortcut: ["Ctrl", "X"], onClick: () => console.log("Cut") },
+            { name: "Copy", shortcut: ["Ctrl", "C"], onClick: () => console.log("Copy") },
+            { name: "Paste", shortcut: ["Ctrl", "V"], onClick: () => console.log("Paste") },
         ]],
     },
     {
         name: "View",
         subMenu: [[
-            { name: "Zoom In", shortcut: ["⌘", "="], onClick: () => console.log("Zoom In") },
-            { name: "Zoom Out", shortcut: ["⌘", "-"], onClick: () => console.log("Zoom Out") },
-            { name: "Full Screen", shortcut: ["Ctrl", "⌘", "F"], onClick: () => console.log("Full Screen") },
+            { name: "Zoom In", shortcut: ["Ctrl", "+"], onClick: () => console.log("Zoom In") },
+            { name: "Zoom Out", shortcut: ["Ctrl", "-"], onClick: () => console.log("Zoom Out") },
+            { name: "Full Screen", shortcut: ["Ctrl", "F11"], onClick: () => console.log("Full Screen") },
         ]],
     },
     {
@@ -69,7 +69,7 @@ interface MenuItemComponentProps {
 }
 
 const renderShortcut = (keys: string[]) => (
-    <span style={{ marginLeft: "3rem" }}>
+    <span style={{ marginLeft: "3rem"}}>
         {keys.map((key, index) => (
             <React.Fragment key={index}>
                 <Kbd>{key}</Kbd>
